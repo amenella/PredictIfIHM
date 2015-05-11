@@ -103,9 +103,8 @@ public class ActionServlet extends HttpServlet {
        Action action = this.getAction(tache);
        action.setServiceMetier(this.getServiceMetier());
        action.execute(request);
-       String vue = this.setVue("todo");
-       //request.getRequestDispatcher(vue).forward(request, response);
-       processRequest(request,response);
+       String vue = this.setVue(tache);
+       request.getRequestDispatcher(vue).forward(request, response);
    }
    
    private Action getAction(String todo){
@@ -114,7 +113,12 @@ public class ActionServlet extends HttpServlet {
            case "listeClients" : { //exemple
                action = new ListeClientsAction();
                break;
-           } //etc...
+           }
+           
+           case "listeSante" : {
+               action = new ListeSanteAction();
+               break;
+           }
        }
         return action;
    }
@@ -125,7 +129,12 @@ public class ActionServlet extends HttpServlet {
                case "listeClients" : {
                    vue = "VueListeClients.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
                    break;
-               } //etc...               
+               }     
+               
+               case "listeSante" : {
+                   vue = "testJSP.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
+                   break;
+               }
            }  
            return vue;
        }

@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import METIER_SERVICE.*;
+import METIER_SERVICE.Services;
 
 /**
  *
@@ -21,7 +21,7 @@ import METIER_SERVICE.*;
 @WebServlet(name = "ActionServlet", urlPatterns = {"/ActionServlet"})
 public class ActionServlet extends HttpServlet {
     
-    private Service serviceMedium;
+    private Services serviceMedium;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -90,9 +90,9 @@ public class ActionServlet extends HttpServlet {
     }// </editor-fold>
 
     
-   public Service getServiceMetier(){
+   public Services getServiceMetier(){
        if(serviceMedium == null){
-           serviceMedium = new Service();
+           serviceMedium = new Services();
        }
        return serviceMedium;
    }    

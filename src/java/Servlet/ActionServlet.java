@@ -1,3 +1,5 @@
+package Servlet;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,6 +7,11 @@
  */
 
 
+import IHMEmploye.ActionAuthEmp;
+import IHMEmploye.ListeAmourAction;
+import IHMEmploye.ListeClientsAction;
+import IHMEmploye.ListeSanteAction;
+import Servlet.Action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -99,7 +106,7 @@ public class ActionServlet extends HttpServlet {
    
     @Override
    protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-       String tache = request.getParameter("test");
+       String tache = request.getParameter("todo");
        Action action = this.getAction(tache);
        action.setServiceMetier(this.getServiceMetier());
        action.execute(request);
@@ -124,6 +131,12 @@ public class ActionServlet extends HttpServlet {
                action = new ListeAmourAction();
                break;
            }
+           
+            case "IHM Employe" : {
+               action = new ActionAuthEmp();
+               break;
+           }
+      
        }
         return action;
    }
@@ -145,6 +158,11 @@ public class ActionServlet extends HttpServlet {
                    vue = "testJSP.jsp";
                    break;
                }
+               
+               case "IHM Employe" : {
+               vue = "AuthEmp.jsp";
+               break;
+           }
            }  
            return vue;
        }

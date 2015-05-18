@@ -1,6 +1,11 @@
-import METIER_MODELE.Prediction;
-import java.util.List;
+package IHMEmploye;
+
+
+
+import Servlet.Action;
+import METIER_MODELE.Client;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,16 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author Lingfan
+ * @author ADRIEN
  */
-public class ListeAmourAction extends Action {
+public class ListeClientsAction extends Action{
 
     @Override
     public void execute(HttpServletRequest request) {
-        List<Prediction> listeAmour;
-        listeAmour = this.serviceMedium.getListAllAmour();
-        request.setAttribute("listeAmour", listeAmour);
         
+        List <Client> clients;
+        clients = this.serviceMedium.getListAllClients();
+        request.setAttribute("clients", clients);
     }
     
 }

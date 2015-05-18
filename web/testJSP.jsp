@@ -15,16 +15,16 @@
         <title>Test Page</title>
     </head>
     <body>
-        <h1>Liste de Sante</h1>
-         <% List<Prediction> listeSante =
-                    (List<Prediction>) request.getAttribute("listeSante");
+        <h1>Liste d'Amour</h1>
+         <% List<Prediction> listeAmour =
+                    (List<Prediction>) request.getAttribute("listeAmour");
             %>
         <ul>
            
             
-            <c:forEach var="Predic" items="${listeSante}">
+            <c:forEach var="Predic" items="${listeAmour}">
                 <li>
-                    <span>${Predic.getCorps()} ${Predic.getConseil()}</span>
+                    <span>${Predic.getCorps()}</span>
                 </li>
             </c:forEach>
         </ul>

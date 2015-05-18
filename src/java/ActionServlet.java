@@ -99,7 +99,7 @@ public class ActionServlet extends HttpServlet {
    
     @Override
    protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-       String tache = request.getParameter("todo");
+       String tache = request.getParameter("test");
        Action action = this.getAction(tache);
        action.setServiceMetier(this.getServiceMetier());
        action.execute(request);
@@ -119,6 +119,11 @@ public class ActionServlet extends HttpServlet {
                action = new ListeSanteAction();
                break;
            }
+           
+           case "listeAmour" : {
+               action = new ListeAmourAction();
+               break;
+           }
        }
         return action;
    }
@@ -133,6 +138,11 @@ public class ActionServlet extends HttpServlet {
                
                case "listeSante" : {
                    vue = "testJSP.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
+                   break;
+               }
+               
+               case "listeAmour" : {
+                   vue = "testJSP.jsp";
                    break;
                }
            }  

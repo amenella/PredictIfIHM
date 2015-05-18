@@ -99,7 +99,7 @@ public class ActionServlet extends HttpServlet {
    
     @Override
    protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-       String tache = request.getParameter("test");
+       String tache = request.getParameter("todo");
        Action action = this.getAction(tache);
        action.setServiceMetier(this.getServiceMetier());
        action.execute(request);

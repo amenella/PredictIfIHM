@@ -5,12 +5,8 @@ package Servlet;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-import IHMEmploye.ActionAuthEmp;
-import IHMEmploye.ListeAmourAction;
-import IHMEmploye.ListeClientsAction;
-import IHMEmploye.ListeSanteAction;
+import IHMClient.*;
+import IHMEmploye.*;
 import Servlet.Action;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,8 +23,8 @@ import METIER_SERVICE.*;
  */
 @WebServlet(name = "ActionServlet", urlPatterns = {"/ActionServlet"})
 public class ActionServlet extends HttpServlet {
-    
-    private Service serviceMedium;
+
+    private Services serviceMedium;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -47,7 +43,7 @@ public class ActionServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ActionServlet</title>");            
+            out.println("<title>Servlet ActionServlet</title>");
             out.println("</head>");
             out.println("<body>");
             //out.println("<h1>Servlet ActionServlet at " + request.getContextPath() + "</h1>");
@@ -96,80 +92,84 @@ public class ActionServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    
-   public Service getServiceMetier(){
-       if(serviceMedium == null){
-           serviceMedium = new Service();
-       }
-       return serviceMedium;
-   }    
-   
+    public Services getServiceMetier() {
+        if (serviceMedium == null) {
+            serviceMedium = new Services();
+        }
+        return serviceMedium;
+    }
+
     @Override
-   protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-       String tache = request.getParameter("todo");
-       Action action = this.getAction(tache);
-       action.setServiceMetier(this.getServiceMetier());
-       action.execute(request);
-       String vue = this.setVue(tache);
-       request.getRequestDispatcher(vue).forward(request, response);
-   }
-   
-   private Action getAction(String todo){
-       Action action = null;
-       switch(todo){
-           case "listeClients" : { //exemple
-               action = new ListeClientsAction();
-               break;
-           }
-           
-           case "listeSante" : {
-               action = new ListeSanteAction();
-               break;
-           }
-           
-           case "listeAmour" : {
-               action = new ListeAmourAction();
-               break;
-           }
-           
-            case "IHM Employe" : {
-               action = new ActionAuthEmp();
-               break;
-           }
-      
-       }
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String tache = request.getParameter("todo");
+        Action action = this.getAction(tache);
+        action.setServiceMetier(this.getServiceMetier());
+        action.execute(request);
+        String vue = this.setVue(tache);
+        request.getRequestDispatcher(vue).forward(request, response);
+    }
+
+    private Action getAction(String todo) {
+        Action action = null;
+        switch (todo) {
+            case "listeClients": { //exemple
+                action = new ListeClientsAction();
+                break;
+            }
+
+            case "listeSante": {
+                action = new ListeSanteAction();
+                break;
+            }
+
+            case "listeAmour": {
+                action = new ListeAmourAction();
+                break;
+            }
+
+            case "IHM Employe": {
+                action = new ActionAuthEmp();
+                break;
+            }
+
+            case "validerInformationsClient": {
+                action = new ValiderInformationsClientAction();
+                break;
+            }
+
+        }
         return action;
-   }
-       
-       private String setVue(String todo) {
-           String vue = null;
-           switch(todo) {
-               case "listeClients" : {
-                   vue = "VueListeClients.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
-                   break;
-               }     
-               
-               case "listeSante" : {
-                   vue = "testJSP.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
-                   break;
-               }
-               
-               case "listeAmour" : {
-                   vue = "testJSP.jsp";
-                   break;
-               }
-               
-               case "IHM Employe" : {
-               vue = "AuthEmp.jsp";
-               break;
-           }
-           }  
-           return vue;
-       }
-       
-       
-       
-   
-   
-   
+    }
+
+    private String setVue(String todo) {
+        String vue = null;
+        switch (todo) {
+            case "listeClients": {
+                vue = "VueListeClients.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
+                break;
+            }
+
+            case "listeSante": {
+                vue = "testJSP.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
+                break;
+            }
+
+            case "listeAmour": {
+                vue = "testJSP.jsp";
+                break;
+            }
+
+            case "IHM Employe": {
+                vue = "AuthEmp.jsp";
+                break;
+            }
+            
+            case "validerInformationsClient" : {
+                vue = "VueListeMediums.jsp";
+                break;
+            }
+        }
+        return vue;
+    }
+
 }

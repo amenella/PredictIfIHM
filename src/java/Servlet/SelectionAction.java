@@ -5,10 +5,17 @@
  */
 package Servlet;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  *
  * @author Lingfan
  */
-public class SelectionAction {
+public class SelectionAction extends Action {
+
+    @Override
+    public void execute(HttpServletRequest request) {
+        
+    }
     
 }

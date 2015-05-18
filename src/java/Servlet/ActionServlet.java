@@ -28,7 +28,7 @@ import METIER_SERVICE.*;
 @WebServlet(name = "ActionServlet", urlPatterns = {"/ActionServlet"})
 public class ActionServlet extends HttpServlet {
     
-    private Service serviceMedium;
+    private Services serviceMedium;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -97,9 +97,9 @@ public class ActionServlet extends HttpServlet {
     }// </editor-fold>
 
     
-   public Service getServiceMetier(){
+   public Services getServiceMetier(){
        if(serviceMedium == null){
-           serviceMedium = new Service();
+           serviceMedium = new Services();
        }
        return serviceMedium;
    }    
@@ -133,7 +133,7 @@ public class ActionServlet extends HttpServlet {
            }
            
             case "IHM Employe" : {
-               action = new ActionAuthEmp();
+               action = new SelectionAction();
                break;
            }
       
@@ -160,9 +160,9 @@ public class ActionServlet extends HttpServlet {
                }
                
                case "IHM Employe" : {
-               vue = "AuthEmp.jsp";
-               break;
-           }
+                    vue = "AuthEmp.jsp";
+                    break;
+                }
            }  
            return vue;
        }

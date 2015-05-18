@@ -1,5 +1,7 @@
+package Servlet;
 
-import METIER_SERVICE.Services;
+
+import METIER_SERVICE.Service;
 import javax.servlet.http.HttpServletRequest;
 
 /*
@@ -14,10 +16,10 @@ import javax.servlet.http.HttpServletRequest;
  */
 public abstract class Action {
     
-    Services serviceMedium;
+    public Service serviceMedium;
     public abstract void execute(HttpServletRequest request);
     
-    public void setServiceMetier(Services serviceMedium){
+    public void setServiceMetier(Service serviceMedium){
         this.serviceMedium = serviceMedium;        
     }
     

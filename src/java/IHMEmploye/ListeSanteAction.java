@@ -1,3 +1,6 @@
+package IHMEmploye;
+
+import Servlet.Action;
 import METIER_MODELE.Prediction;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;

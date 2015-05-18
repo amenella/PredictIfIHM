@@ -1,3 +1,5 @@
+package Servlet;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,6 +7,11 @@
  */
 
 
+import IHMEmploye.ActionAuthEmp;
+import IHMEmploye.ListeAmourAction;
+import IHMEmploye.ListeClientsAction;
+import IHMEmploye.ListeSanteAction;
+import Servlet.Action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,7 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import METIER_SERVICE.Services;
+import METIER_SERVICE.*;
 
 /**
  *
@@ -21,7 +28,7 @@ import METIER_SERVICE.Services;
 @WebServlet(name = "ActionServlet", urlPatterns = {"/ActionServlet"})
 public class ActionServlet extends HttpServlet {
     
-    private Services serviceMedium;
+    private Service serviceMedium;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -90,9 +97,9 @@ public class ActionServlet extends HttpServlet {
     }// </editor-fold>
 
     
-   public Services getServiceMetier(){
+   public Service getServiceMetier(){
        if(serviceMedium == null){
-           serviceMedium = new Services();
+           serviceMedium = new Service();
        }
        return serviceMedium;
    }    
@@ -124,6 +131,12 @@ public class ActionServlet extends HttpServlet {
                action = new ListeAmourAction();
                break;
            }
+           
+            case "IHM Employe" : {
+               action = new ActionAuthEmp();
+               break;
+           }
+      
        }
         return action;
    }
@@ -145,6 +158,11 @@ public class ActionServlet extends HttpServlet {
                    vue = "testJSP.jsp";
                    break;
                }
+               
+               case "IHM Employe" : {
+               vue = "AuthEmp.jsp";
+               break;
+           }
            }  
            return vue;
        }

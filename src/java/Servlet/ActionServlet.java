@@ -8,6 +8,8 @@ package Servlet;
 
 
 import IHMEmploye.ActionAuthEmp;
+import IHMEmploye.ActionConsultHoroscope;
+import IHMEmploye.ActionConsultHoroscopeClient;
 import IHMEmploye.ListeAmourAction;
 import IHMEmploye.ListeClientsAction;
 import IHMEmploye.ListeSanteAction;
@@ -136,6 +138,31 @@ public class ActionServlet extends HttpServlet {
                action = new SelectionAction();
                break;
            }
+            
+            case "Connexion" : {
+               action = new ActionAuthEmp();
+               break;
+           }
+            
+            case "ConsulterHoroscopesClient" : {
+               action = new ActionConsultHoroscopeClient();
+               break;
+           }
+            
+            case "ConsulterHoroscope" : {
+               action = new ActionConsultHoroscope();
+               break;
+           }
+            
+            case "RetourAcceuil" : {
+               action = new ActionAuthEmp();
+               break;
+           }
+            
+             case "RetourConsultation" : {
+               action = new ActionConsultHoroscopeClient();
+               break;
+           }
       
        }
         return action;
@@ -161,6 +188,31 @@ public class ActionServlet extends HttpServlet {
                
                case "IHM Employe" : {
                     vue = "AuthEmp.jsp";
+                    break;
+                }
+               
+               case "Connexion" : {
+                    vue = "AcceuilEmp.jsp";
+                    break;
+                }
+               
+               case "ConsulterHoroscopesClient" : {
+                    vue = "ConsultationHoroscopeClient.jsp";
+                    break;
+                }
+               
+               case "ConsulterHoroscope" : {
+                    vue = "ConsultationHoroscope.jsp";
+                    break;
+                }
+               
+               case "RetourAcceuil" : {
+                    vue = "AcceuilEmp.jsp";
+                    break;
+                }
+               
+               case "RetourConsultation" : {
+                    vue = "ConsultationHoroscopeClient.jsp";
                     break;
                 }
            }  

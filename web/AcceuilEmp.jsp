@@ -9,7 +9,7 @@
 <%@taglib prefix="c"uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="METIER_MODELE.Prediction" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,24 +20,26 @@
     <body>
         <h1>Predict'IF</h1> 
         <h1>Liste de Clients</h1>
+        
+        
+        
+         
+        
         <form name="ClientList" id="formulaire" method="post" action="./ActionServlet">
-            <select name="ListeClients"> 
-                <% List<Client> listeClients =
-                    (List<Client>) request.getAttribute("listeClients");
-                   List<String> ListeDates = (List<String>) request.getAttribute("listeDates");
-                %>
-                
-                <c:forEach var="i" begin="0" end="${ListeClients.size()}">
-                    <option name="Client" value="${ListeClients.get(i).getId()}"> <span>${ListeClients.get(i).getPrenom()} ${ListeClients.get(i).getNom()}
-                        ${ListeDates.get(i)}
-                    </span>
+           
+            <select name="clientChoisi" size="5 "> 
+                <c:forEach items="${ListeClients}" var="c" varStatus="status" >
+                    
+                    <option  value="${c.getId()}">
+                        <c:out value="${c.getPrenom()} ${ListeDates[status.index]}"/>
                     </option>
-                        
                 </c:forEach>
+                
+                
             </select>
                 
                 <label>
-                    <input type ="submit" name="todo" value="Consulter">
+                    <input type ="submit" name="todo" value="ConsulterHoroscopesClient">
                 </label>
                 
                 <label>

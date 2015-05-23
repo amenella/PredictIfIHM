@@ -25,26 +25,36 @@ public class ActionAuthEmp extends Action {
     @Override
     public void execute(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        
-        String id = request.getParameter("ID");
-        String mdp = request.getParameter("MdP");
-        Employe e = this.serviceMedium.checkLoginEmploye(Integer.parseInt(id), mdp);
+        Employe e = null;
+        if(session.getAttribute("employe")==null){
+            String id = request.getParameter("ID");
+            String mdp = request.getParameter("MdP");
+            e = this.serviceMedium.checkLoginEmploye(Integer.parseInt(id), mdp);
+            session.setAttribute("employe", id);
+        }else{
+            String id =(String) session.getAttribute("employe");
+            e = this.serviceMedium.getEmployeById(Integer.parseInt(id));
+        }
         List<Client> c = this.serviceMedium.getListClientsFromEmploye(e);
         List<String> derniersDates = new ArrayList<String>();
-        if(e != null) {
+        
             
             //remplir la liste des derniers horoscopes des clie ts
             for(int i=0;i<c.size();i++){
+                
+                
+                System.out.println(c.get(i));
                 String date = ""+this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate().getMonth();
                 date = date+"/"+this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate().getDate();
                 date = date+"/"+this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate().getYear();
                 derniersDates.add(date);
             }
             
-            request.setAttribute("ListeCLients",c);
+            request.setAttribute("ListeClients",c);
+            
             request.setAttribute("ListeDates",derniersDates);
-            session.setAttribute("employe", e.getId());
-        }
+            
+        
         
         
     }

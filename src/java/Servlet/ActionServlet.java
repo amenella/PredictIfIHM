@@ -8,12 +8,16 @@ package Servlet;
 
 
 import IHMEmploye.ActionAuthEmp;
+import IHMEmploye.ActionAuthEmp;
+import IHMEmploye.ActionConsultHoroscope;
 import IHMEmploye.ActionConsultHoroscope;
 import IHMEmploye.ActionConsultHoroscopeClient;
-import IHMEmploye.ListeAmourAction;
-import IHMEmploye.ListeClientsAction;
-import IHMEmploye.ListeSanteAction;
-import Servlet.Action;
+import IHMEmploye.ActionConsultHoroscopeClient;
+import IHMEmploye.ActionCreateHoroscope;
+import IHMEmploye.ActionCreateHoroscope;
+import IHMEmploye.ActionPredictionSelect;
+import IHMEmploye.ActionPredictionSelect;
+import IHMEmploye.RetoursansSelect;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -22,6 +26,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import METIER_SERVICE.*;
+import Servlet.Action;
+import Servlet.SelectionAction;
 
 /**
  *
@@ -119,20 +125,7 @@ public class ActionServlet extends HttpServlet {
    private Action getAction(String todo){
        Action action = null;
        switch(todo){
-           case "listeClients" : { //exemple
-               action = new ListeClientsAction();
-               break;
-           }
            
-           case "listeSante" : {
-               action = new ListeSanteAction();
-               break;
-           }
-           
-           case "listeAmour" : {
-               action = new ListeAmourAction();
-               break;
-           }
            
             case "IHM Employe" : {
                action = new SelectionAction();
@@ -163,6 +156,26 @@ public class ActionServlet extends HttpServlet {
                action = new ActionConsultHoroscopeClient();
                break;
            }
+             
+             case "Creer" : {
+               action = new ActionCreateHoroscope();
+               break;
+           }
+             
+             case "Selectionner" : {
+               action = new ActionPredictionSelect();
+               break;
+           }
+             
+             case "PredictionSlectionnee" : {
+               action = new ActionCreateHoroscope();
+               break;
+           }
+             
+             case "RetourSansSelection" : {
+               action = new ActionCreateHoroscope();
+               break;
+           }
       
        }
         return action;
@@ -171,20 +184,7 @@ public class ActionServlet extends HttpServlet {
        private String setVue(String todo) {
            String vue = null;
            switch(todo) {
-               case "listeClients" : {
-                   vue = "VueListeClients.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
-                   break;
-               }     
                
-               case "listeSante" : {
-                   vue = "testJSP.jsp"; //voir jsp sur internet --> jsp html qui appelle du java
-                   break;
-               }
-               
-               case "listeAmour" : {
-                   vue = "testJSP.jsp";
-                   break;
-               }
                
                case "IHM Employe" : {
                     vue = "AuthEmp.jsp";
@@ -213,6 +213,26 @@ public class ActionServlet extends HttpServlet {
                
                case "RetourConsultation" : {
                     vue = "ConsultationHoroscopeClient.jsp";
+                    break;
+                }
+               
+               case "Creer" : {
+                    vue = "CreationHoroscope.jsp";
+                    break;
+                }
+               
+               case "Selectionner" : {
+                    vue = "PredictionSelect.jsp";
+                    break;
+                }
+               
+               case "PredictionSlectionnee" : {
+                    vue = "CreationHoroscope.jsp";
+                    break;
+                }
+               
+               case "RetourSansSelection" : {
+                    vue = "CreationHoroscope.jsp";
                     break;
                 }
            }  

@@ -35,7 +35,7 @@
         <form name="HoroscopeList" id="formulaire" method="post" action="./ActionServlet">                
                 
                 <label>
-                    <input type ="submit" name="todo" value="Créer">
+                    <input type ="submit" name="todo" value="Creer">
                 </label>
             
                 <label>

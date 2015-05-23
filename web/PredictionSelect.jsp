@@ -19,36 +19,37 @@
     </head>
     <body>
         <h1>Predict'IF</h1> 
-        <h1>Nom CLient: ${nomClient}</h1>
+        <h1>Client: ${clientName}</h1>
        
         
         <form name="HoroscopeList" id="formulaire" method="post" action="./ActionServlet">
            
-            <select name="horoscopeChoisi" size="5 "> 
-                <c:forEach items="${ListeHoroscopes}" var="c" >
+            <select name="predictionChoisi" size="5 "> 
+                <c:forEach items="${Liste}" var="c" >
                     
                     <option value="${c.getId()}">
-                        <c:out value="${c.getId()} ${c.getDate()}"/>
+                        <c:out value="${c.getId()} ${c.getIntensite()} ${c.getCorps()}"/>
                     </option>
                 </c:forEach>
                 
                 
             </select>
-                
-                <label>
-                    <input type ="submit" name="todo" value="ConsulterHoroscope">
-                </label>
-                
-                <label>
-                    <input type ="submit" name="todo" value="Creer">
-                </label>
+                <input type ="hidden" name="todo" value="PredictionSlectionnee">    
             
                 <label>
-                    <input type ="submit" name="todo" value="RetourAcceuil">
+                    <input type ="submit" name="Selectionner" value="Selectionner">
                 </label>
-           
-                
         </form>
+        
+        <form name="RetourSansSelection" id="formulaire" method="post" action="./ActionServlet">
+            <label>
+                    <input type ="hidden" name="todo" value="RetourSansSelection">    
+                    <input type ="submit" name="Retour" value="Retour">
+            </label>
+            
+        </form>
+        
+                
         
        
         

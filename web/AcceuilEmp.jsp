@@ -43,7 +43,7 @@
                 </label>
                 
                 <label>
-                    <input type ="submit" name="todo" value="Créer">
+                    <input type ="submit" name="todo" value="Creer">
                 </label>
            
                 

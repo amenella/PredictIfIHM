@@ -35,6 +35,7 @@ public class ActionAuthEmp extends Action {
             String id =(String) session.getAttribute("employe");
             e = this.serviceMedium.getEmployeById(Integer.parseInt(id));
         }
+        
         List<Client> c = this.serviceMedium.getListClientsFromEmploye(e);
         List<String> derniersDates = new ArrayList<String>();
         

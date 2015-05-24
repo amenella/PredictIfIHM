@@ -15,6 +15,7 @@ import IHMEmploye.ActionConsultHoroscopeClient;
 import IHMEmploye.ActionConsultHoroscopeClient;
 import IHMEmploye.ActionCreateHoroscope;
 import IHMEmploye.ActionCreateHoroscope;
+import IHMEmploye.ActionCreationHoroscopeConf;
 import IHMEmploye.ActionPredictionSelect;
 import IHMEmploye.ActionPredictionSelect;
 import IHMEmploye.RetoursansSelect;
@@ -176,6 +177,10 @@ public class ActionServlet extends HttpServlet {
                action = new ActionCreateHoroscope();
                break;
            }
+             case "Envoyer" : {
+               action = new ActionCreationHoroscopeConf();
+               break;
+           }
       
        }
         return action;
@@ -233,6 +238,11 @@ public class ActionServlet extends HttpServlet {
                
                case "RetourSansSelection" : {
                     vue = "CreationHoroscope.jsp";
+                    break;
+                }
+               
+               case "Envoyer" : {
+                    vue = "CreationHoroscopeConf.jsp";
                     break;
                 }
            }  

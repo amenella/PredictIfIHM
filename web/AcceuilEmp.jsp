@@ -27,7 +27,7 @@
         
         <form name="ClientList" id="formulaire" method="post" action="./ActionServlet">
            
-            <select name="clientChoisi" size="5 "> 
+            <select name="clientChoisi" size="5"> 
                 <c:forEach items="${ListeClients}" var="c" varStatus="status" >
                     
                     <option  value="${c.getId()}">

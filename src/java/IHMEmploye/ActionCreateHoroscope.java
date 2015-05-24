@@ -6,8 +6,10 @@
 package IHMEmploye;
 
 import METIER_MODELE.Client;
+import METIER_MODELE.Medium;
 import METIER_MODELE.Prediction;
 import Servlet.Action;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -22,6 +24,7 @@ public class ActionCreateHoroscope extends Action {
         HttpSession session = request.getSession();
         Client c = null;
         
+        
        
         
         if(session.getAttribute("client") != null){
@@ -31,6 +34,9 @@ public class ActionCreateHoroscope extends Action {
             c = this.serviceMedium.getClientById(Integer.parseInt(clientId));
             session.setAttribute("client",clientId );
         }
+        
+        List<Medium> listeMedium = c.getMediums();
+        request.setAttribute("listeMedium", listeMedium);
         
         request.setAttribute("clientName", c.getPrenom()+" "+c.getNom());
         if(session.getAttribute("travail") != null){

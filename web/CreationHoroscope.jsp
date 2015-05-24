@@ -59,6 +59,20 @@
         </form>
                     
         <form name="HoroscopeSubmit" id="formulaire" method="post" action="./ActionServlet">
+            <span>Signature</span>
+            
+            <select name="mediumChoisi"> 
+                
+                <c:forEach items="${listeMedium}" var="c" >
+                    
+                    <option  value="${c.getId()}">
+                        <c:out value="${c.getNom()}"/>
+                    </option>
+                </c:forEach>
+                
+                
+            </select>
+            
             <input type ="submit" name="todo" value="Envoyer">
         </form>
         

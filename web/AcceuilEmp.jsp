@@ -9,6 +9,7 @@
 <%@taglib prefix="c"uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,11 +28,13 @@
         
         <form name="ClientList" id="formulaire" method="post" action="./ActionServlet">
            
-            <select name="clientChoisi" size="5"> 
+            <select name="clientChoisi" size="5" dir="rtl"> 
                 <c:forEach items="${ListeClients}" var="c" varStatus="status" >
                     
                     <option  value="${c.getId()}">
-                        <c:out value="${c.getPrenom()} ${ListeDates[status.index]}"/>
+                        <fmt:formatDate pattern="yyyy-MM-dd" value="${ListeDates[status.index]}" />
+                        <c:out value="${c.getPrenom()}"/>
+                        
                     </option>
                 </c:forEach>
                 

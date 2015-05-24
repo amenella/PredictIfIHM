@@ -9,6 +9,8 @@
 <%@taglib prefix="c"uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -24,13 +26,17 @@
         
         <form name="HoroscopeList" id="formulaire" method="post" action="./ActionServlet">
            
-            <select name="horoscopeChoisi" size="5 "> 
+            <select name="horoscopeChoisi" size="5" dir="rtl"> 
                 <c:forEach items="${ListeHoroscopes}" var="c" >
                     
                     <option value="${c.getId()}">
-                        <c:out value="${c.getId()} ${c.getDate()}"/>
+                        <fmt:formatDate pattern="yyyy-MM-dd" value="${c.getDate()}" />
+                        <c:out value="${c.getId()}"/> 
+                        
                     </option>
                 </c:forEach>
+                    
+                
                 
                 
             </select>
@@ -43,8 +49,10 @@
                     <input type ="submit" name="todo" value="Creer">
                 </label>
             
+                <input type ="hidden" name="todo" value="RetourAcceuil">
+            
                 <label>
-                    <input type ="submit" name="todo" value="RetourAcceuil">
+                    <input type ="submit" name="Retour" value="Retour">
                 </label>
            
                 

@@ -38,8 +38,10 @@
                     <input type ="submit" name="todo" value="Creer">
                 </label>
             
+                <input type ="hidden" name="todo" value="RetourConsultation">
+            
                 <label>
-                    <input type ="submit" name="todo" value="RetourConsultation">
+                    <input type ="submit" name="Retour" value="Retour">
                 </label>
            
                 

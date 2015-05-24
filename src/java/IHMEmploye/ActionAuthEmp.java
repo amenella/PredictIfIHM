@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import METIER_MODELE.Employe;
 import METIER_MODELE.Horoscope;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -37,7 +38,7 @@ public class ActionAuthEmp extends Action {
         }
         
         List<Client> c = this.serviceMedium.getListClientsFromEmploye(e);
-        List<String> derniersDates = new ArrayList<String>();
+        List<Date> derniersDates = new ArrayList<Date>();
         
             
             //remplir la liste des derniers horoscopes des clie ts
@@ -45,9 +46,7 @@ public class ActionAuthEmp extends Action {
                 
                 
                 System.out.println(c.get(i));
-                String date = ""+this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate().getMonth();
-                date = date+"/"+this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate().getDate();
-                date = date+"/"+this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate().getYear();
+                Date date = this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate();
                 derniersDates.add(date);
             }
             

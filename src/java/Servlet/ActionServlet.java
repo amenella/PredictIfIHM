@@ -136,6 +136,17 @@ public class ActionServlet extends HttpServlet {
                 action = new ValiderInformationsClientAction();
                 break;
             }
+            
+            case "validerSelectionMediums" : {
+                action = new ValiderSelectionMediumsAction();
+                break;
+            }
+            
+            
+            case "creerClient" : {
+                action = new CreerClientAction();
+                break;
+            }
 
         }
         return action;
@@ -166,6 +177,16 @@ public class ActionServlet extends HttpServlet {
             
             case "validerInformationsClient" : {
                 vue = "VueListeMediums.jsp";
+                break;
+            }
+            
+            case "validerSelectionMediums" : {
+                vue = "VueInfosCB.jsp";
+                break;
+            }
+            
+            case "creerClient" : {
+                vue = "VueValidationCreationClient.jsp";
                 break;
             }
         }

@@ -17,8 +17,10 @@
             <div id="formulaire">
                 <form name="form1" id="formulairecontent" method="post" action="./ActionServlet">
                     <h1 class='titre'>Prédict'If</h1>
-                    <h2>Informations CB</h2>
-
+                    <h2>Finalisez votre inscription.</h2>
+                    <p>Nous vous rappelons que l'inscription réclame un virement de 15€/mois.
+                    Veuillez entrez vos coordonnées bancaires :</p>
+                    
                     <label>
                         <span>Type de carte</span>
                         <SELECT name="typeCB" id="typeCB" size="1" required>
@@ -66,15 +68,9 @@
                             <OPTION>2021
                         </SELECT>
                     </label>
-                    
                     <label>
-                        <p>J'ai lu et j'accepte les cgu</p>
-                        <INPUT type="checkbox" name="cgu" required>
+                    <input class="checkbox" type="checkbox" name="cgu" required><p class="cgu">J'ai lu et j'accepte les CGU</p>
                     </label>
-                    
-                     
-
-                    
                     <input type="hidden" name="todo" value="creerClient">
                     <input class="button" type="submit" name="valider1" value="Valider">
                 </form>

@@ -18,6 +18,65 @@ and open the template in the editor.
                     <h1 class='titre'>Prédict'If</h1>
                     <h2>Formulaire d'inscription :</h2>
 
+                    <table class="infosClients" width=100%>
+                        <tr>
+                            <td width=50%>
+                                <label>
+                                <span>Civilité</span>
+                                <SELECT name="civilite" id="civilite" size="1" required>
+                                    <OPTION>Monsieur
+                                    <OPTION>Madame
+                                </SELECT>
+                                </label>
+                            </td>
+                            <td width=50%>
+                                <label>
+                                <span>Adresse postale</span>
+                                <input type="text" name="adresse" id="adresse" required>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width=50%>
+                                <label>
+                                <span>Nom</span>
+                                <input type="text" name="nom" id="nom" required>
+                                </label>
+                            </td>
+                            <td width=50%>
+                                <label>
+                                <span>Adresse e-mail</span>
+                                <input type="email" name="mail" id="mail" required>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width=50%>
+                                <label>
+                                <span>Prenom</span>    
+                                <input type="text" name="prenom" id="prenom" required>
+                                </label>
+                            </td>
+                            <td width=50%>
+                                <label>
+                                <span>Numero de téléphone</span>
+                                <input type="tel" name="telephone" id="telephone" required>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width=50%>
+                                <label>
+                                <span>Date de naissance</span>
+                                <input type="date" name="ddn" id="ddn" required autocomplete='on'>
+                                </label>
+                            </td>
+                            <td width=50%>
+                            </td>
+                        </tr>
+                    </table>
+<!--
+
                     <label>
                         <span>Civilité</span>
                         <SELECT name="civilite" id="civilite" size="1" required>
@@ -40,23 +99,23 @@ and open the template in the editor.
                         <span>Date de naissance</span>
                         <input type="date" name="ddn" id="ddn" required autocomplete='on'>
                     </label>
-                    
+
                     <label>
                         <span>Adresse postale</span>
                         <input type="text" name="adresse" id="adresse" required>
                     </label>
-                    
+
                     <label>
                         <span>Adresse e-mail</span>
                         <input type="email" name="mail" id="mail" required>
                     </label>
-                    
+
                     <label>
                         <span>Numero de téléphone</span>
                         <input type="tel" name="telephone" id="telephone" required>
                     </label>
-                    
-                    
+-->
+
                     <input type="hidden" name="todo" value="validerInformationsClient">
                     <input class="button" type="submit" name="valider1" value="Valider">
                 </form>

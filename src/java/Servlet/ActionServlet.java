@@ -131,6 +131,11 @@ public class ActionServlet extends HttpServlet {
                 action = new ActionAuthEmp();
                 break;
             }
+            
+            case "IHM Client": {
+                action = null;
+                break;
+            }
 
             case "validerInformationsClient": {
                 action = new ValiderInformationsClientAction();
@@ -172,6 +177,11 @@ public class ActionServlet extends HttpServlet {
 
             case "IHM Employe": {
                 vue = "AuthEmp.jsp";
+                break;
+            }
+            
+            case "IHM Client": {
+                vue = "AccueilClient.html";
                 break;
             }
             

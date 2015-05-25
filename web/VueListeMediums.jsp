@@ -19,7 +19,7 @@
         <div class="wrapper">  
             <div id="formulaire">
                 <form name="form1" id="formulairecontent" method="post" action="./ActionServlet">
-                    <h1>Predict'If</h1>
+                    <h1 class="titre">Predict'If</h1>
                     <p>Sélectionnez vos mediums :</p>
 
                     <%
@@ -32,7 +32,7 @@
                                 <tr>
                                     <td rowspan="2" width=20%>photo</td>
                                     <td width=70%>${medium.getNom()}</td>
-                                    <td rowspan="2" width=10%><INPUT type="checkbox" name="choixMedium" id="choixMedium" value="${medium.getId()}"></td> 
+                                    <td rowspan="2" width=10%><INPUT class="checkbox" type="checkbox" name="choixMedium" id="choixMedium" value="${medium.getId()}"></td> 
 
                                 </tr>
                                 <tr>

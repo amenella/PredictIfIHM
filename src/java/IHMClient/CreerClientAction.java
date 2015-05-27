@@ -46,17 +46,9 @@ public class CreerClientAction  extends Action{
         Medium medium = this.serviceMedium.getMediumById( Integer.parseInt(selectedIdMedium[i]) );
         this.serviceMedium.addMediumToClient(newClient, medium);
         
-//        System.out.println("medium n°" + i + " : " + medium.getNom() );
         
         }
         
-        /*
-        
-        
-        List <Medium> listeMediums;
-        listeMediums = this.serviceMedium.getListAllMedium();
-        request.setAttribute("listeMediums", listeMediums);
-    */
         
         
     }

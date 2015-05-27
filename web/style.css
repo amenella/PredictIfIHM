@@ -17,7 +17,7 @@ html {
 }
 
 body { 
-    background-color: #9D0DFF;
+    background-color: #4B0082;
     background-repeat:repeat;
     background-attachment:fixed;
     background-position:center;
@@ -25,6 +25,7 @@ body {
     font-size: 16px;
     padding-bottom: 65px;
 }
+
 
 h1.titre { 
     cursor:default;
@@ -39,6 +40,8 @@ p {
     line-height:1.2em;
     margin-bottom:24px; 
     text-align: center;
+    width: auto;
+    display: inline;
 }
 
 
@@ -93,7 +96,7 @@ input {
     display:block;
     width:90%;
     border-radius:4px;
-    background-color:#f4f4f4;
+    background-color:#fff;
     color:#000;
     border:1px solid #5f5f5f;
     padding:10px;
@@ -178,8 +181,8 @@ td{
     background-color:#f4f4f4;
     color:#000;
     border:1px solid #5f5f5f;
-    padding:10px;
-    margin-bottom:0px;    
+    padding:10px;   
+    width: auto;
 }
 
 .cgu {
@@ -187,10 +190,19 @@ td{
 }
 
 select {
-    margin-bottom: 25px;
-    display: block;
-    width: 90%;
-    padding: 10px;
-    border-radius: 4px;
+    display:block;
+    width:90%;
+    border-radius:4px;
+    background-color:#fff;
+    color:#000;
+    border:1px solid #5f5f5f;
+    padding:10px;
+    margin-bottom:25px;
 }
 
+.radio {
+    cursor: default;
+    width: auto;
+    display: initial;
+    
+}

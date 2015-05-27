@@ -13,6 +13,15 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1>Client créé</h1>
+        
+        <div class="wrapper">  
+            <div id="formulaire">
+                <form name="form1" id="formulairecontent" method="post" action="./ActionServlet">
+                    <p>Félicitations ! Vous vous êtes bien inscrits au service Prédict'If ! </p>
+                    <input type="hidden" name="todo" value="validerSelectionMediums">
+                    <input class="button" type="submit" name="valider2" value="Retour Accueil">
+                </form>
+            </div>
+        </div>
     </body>
 </html>

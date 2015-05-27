@@ -20,7 +20,7 @@
             <div id="formulaire">
                 <form name="form1" id="formulairecontent" method="post" action="./ActionServlet">
                     <h1 class="titre">Predict'If</h1>
-                    <p>Sélectionnez vos mediums :</p>
+                    <h2>Sélectionnez vos mediums :</h2>
 
                     <%
                         List<Medium> listeMediums = (List<Medium>) request.getAttribute("listeMediums");

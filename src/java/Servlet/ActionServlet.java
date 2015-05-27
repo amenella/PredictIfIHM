@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import METIER_SERVICE.*;
 import Servlet.Action;
 import Servlet.SelectionAction;
+import IHMClient.*;
 
 /**
  *
@@ -113,6 +114,181 @@ public class ActionServlet extends HttpServlet {
        return serviceMedium;
    }    
    
-    @Override
-        return action;
+    protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+       String tache = request.getParameter("todo");
+       Action action = this.getAction(tache);
+       action.setServiceMetier(this.getServiceMetier());
+       action.execute(request);
+       String vue = this.setVue(tache);
+       request.getRequestDispatcher(vue).forward(request, response);
+   }
+   
+   private Action getAction(String todo){
+       Action action = null;
+       switch(todo){
+           
+           
+            case "IHM Employe" : {
+               action = new SelectionAction();
+               break;
+           }
+            
+            case "Connexion" : {
+               action = new ActionAuthEmp();
+               break;
+           }
+            
+            case "ConsulterHoroscopesClient" : {
+               action = new ActionConsultHoroscopeClient();
+               break;
+           }
+            
+            case "ConsulterHoroscope" : {
+               action = new ActionConsultHoroscope();
+               break;
+           }
+            
+            case "RetourAcceuil" : {
+               action = new ActionAuthEmp();
+               break;
+           }
+            
+             case "RetourConsultation" : {
+               action = new ActionConsultHoroscopeClient();
+               break;
+           }
+             
+             case "Creer" : {
+               action = new ActionCreateHoroscope();
+               break;
+           }
+             
+             case "Selectionner" : {
+               action = new ActionPredictionSelect();
+               break;
+           }
+             
+             case "PredictionSlectionnee" : {
+               action = new ActionCreateHoroscope();
+               break;
+           }
+             
+             case "RetourSansSelection" : {
+               action = new ActionCreateHoroscope();
+               break;
+           }
+             case "Envoyer" : {
+               action = new ActionCreationHoroscopeConf();
+               break;
+           }
+             
+             case "validerInformationsClient": {
+                 action = new ValiderInformationsClientAction();
+                 break;
+             }
+            
+            case "validerSelectionMediums" : {
+                action = new ValiderSelectionMediumsAction();
+                break;
+            }
+            
+            
+            case "creerClient" : {
+                action = new CreerClientAction();
+                break;
+            }
+            
+            case "IHM Client" : {
+                action = new RetoursansSelect();
+                break;
+            }
+      
+       }
+         return action;
+   }
+       
+       private String setVue(String todo) {
+           String vue = null;
+           switch(todo) {
+               
+               
+               case "IHM Employe" : {
+                    vue = "AuthEmp.jsp";
+                    break;
+                }
+               
+               case "Connexion" : {
+                    vue = "AcceuilEmp.jsp";
+                    break;
+                }
+               
+               case "ConsulterHoroscopesClient" : {
+                    vue = "ConsultationHoroscopeClient.jsp";
+                    break;
+                }
+               
+               case "ConsulterHoroscope" : {
+                    vue = "ConsultationHoroscope.jsp";
+                    break;
+                }
+               
+               case "RetourAcceuil" : {
+                    vue = "AcceuilEmp.jsp";
+                    break;
+                }
+               
+               case "RetourConsultation" : {
+                    vue = "ConsultationHoroscopeClient.jsp";
+                    break;
+                }
+               
+               case "Creer" : {
+                    vue = "CreationHoroscope.jsp";
+                    break;
+                }
+               
+               case "Selectionner" : {
+                    vue = "PredictionSelect.jsp";
+                    break;
+                }
+               
+               case "PredictionSlectionnee" : {
+                    vue = "CreationHoroscope.jsp";
+                    break;
+                }
+               
+               case "RetourSansSelection" : {
+                    vue = "CreationHoroscope.jsp";
+                    break;
+                }
+               
+               case "Envoyer" : {
+                    vue = "CreationHoroscopeConf.jsp";
+                    break;
+                }
+               case "validerInformationsClient" : {
+                 vue = "VueListeMediums.jsp";
+                 break;
+             }
+            
+            case "validerSelectionMediums" : {
+                vue = "VueInfosCB.jsp";
+                break;
+            }
+            
+            case "creerClient" : {
+                vue = "VueValidationCreationClient.jsp";
+                break;
+            }
+            
+            case "IHM Client" : {
+                vue = "AccueilClient.html";
+                break;
+            }
+               
+           }  
+           return vue;
+       }
+       
+       
 }

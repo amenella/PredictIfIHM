@@ -69,7 +69,9 @@
                         </SELECT>
                     </label>
                     <label>
-                    <input class="checkbox" type="checkbox" name="cgu" required><p class="cgu">J'ai lu et j'accepte les CGU</p>
+                        <p>J'ai lu et j'accepte les cgu</p>
+                        <input class="checkbox" type="checkbox" name="cgu" required>
+                        
                     </label>
                     <input type="hidden" name="todo" value="creerClient">
                     <input class="button" type="submit" name="valider1" value="Valider">

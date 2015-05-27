@@ -6,6 +6,7 @@
 package Servlet;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -15,6 +16,11 @@ public class SelectionAction extends Action {
 
     @Override
     public void execute(HttpServletRequest request) {
+        
+        HttpSession session = request.getSession(false);
+        if (session!=null) {
+            session.invalidate();
+        }
         
     }
     

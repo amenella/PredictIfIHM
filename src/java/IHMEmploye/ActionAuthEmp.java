@@ -28,15 +28,18 @@ public class ActionAuthEmp extends Action {
         HttpSession session = request.getSession();
         Employe e = null;
         if(session.getAttribute("employe")==null){
+            
             String id = request.getParameter("ID");
+            System.out.println(id);
             String mdp = request.getParameter("MdP");
             e = this.serviceMedium.checkLoginEmploye(Integer.parseInt(id), mdp);
             session.setAttribute("employe", id);
         }else{
+            System.out.println("YYYY");
             String id =(String) session.getAttribute("employe");
             e = this.serviceMedium.getEmployeById(Integer.parseInt(id));
         }
-        
+            
         List<Client> c = this.serviceMedium.getListClientsFromEmploye(e);
         List<Date> derniersDates = new ArrayList<Date>();
         
@@ -46,8 +49,10 @@ public class ActionAuthEmp extends Action {
                 
                 
                 System.out.println(c.get(i));
-                Date date = this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate();
-                derniersDates.add(date);
+                if(this.serviceMedium.getLastHoroscopeFromClient(c.get(i)) != null);{
+                    Date date = this.serviceMedium.getLastHoroscopeFromClient(c.get(i)).getDate();
+                    derniersDates.add(date);
+                }
             }
             
             request.setAttribute("ListeClients",c);

@@ -21,28 +21,19 @@
         <h1>Predict'IF</h1> 
         <h1>Prédiction selectionnée: ${horoscopeId}</h1>
         
-        <table>
-            <tr>
-                <p>
-                    ${horoscopeMail}
-                </p>
-                
-            </tr>
-            
-        </table>
-       
+               
         
-        <form name="HoroscopeList" id="formulaire" method="post" action="./ActionServlet">                
+        <form name="HoroscopeList" id="formulaire" method="post" action="./ActionServlet">  
+            
+                <textarea id="horoscope" rows="25" cols="100">
+                    ${horoscopeMail}
+                </textarea>
                 
-                <label>
-                    <input type ="submit" name="todo" value="Creer">
-                </label>
+                <input id="acceuilbutton" type ="submit" name="todo" value="Creer">
             
                 <input type ="hidden" name="todo" value="RetourConsultation">
             
-                <label>
-                    <input type ="submit" name="Retour" value="Retour">
-                </label>
+                <input id="acceuilbutton" type ="submit" name="Retour" value="Retour">
            
                 
         </form>

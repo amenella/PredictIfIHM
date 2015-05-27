@@ -28,12 +28,14 @@
         
         <form name="ClientList" id="formulaire" method="post" action="./ActionServlet">
            
-            <select name="clientChoisi" size="5" dir="rtl"> 
+            <select name="clientChoisi" id="clientlist" size="20"> 
                 <c:forEach items="${ListeClients}" var="c" varStatus="status" >
                     
                     <option  value="${c.getId()}">
-                        <fmt:formatDate pattern="yyyy-MM-dd" value="${ListeDates[status.index]}" />
-                        <c:out value="${c.getPrenom()}"/>
+                    <c:out value="${c.getPrenom()}"/>                        
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <fmt:formatDate pattern="yyyy-MM-dd" value="${ListeDates[status.index]}" />
+                      
                         
                     </option>
                 </c:forEach>
@@ -41,13 +43,14 @@
                 
             </select>
                 
-                <label>
-                    <input type ="submit" name="todo" value="ConsulterHoroscopesClient">
-                </label>
+            <input type="hidden" name="todo" value="ConsulterHoroscopesClient">
+               
+                    <input id="acceuilbutton" type ="submit" name="consulter" value="Consulter">
                 
-                <label>
-                    <input type ="submit" name="todo" value="Creer">
-                </label>
+                
+                
+                    <input id="acceuilbutton" type ="submit" name="todo" value="Creer">
+                
            
                 
         </form>

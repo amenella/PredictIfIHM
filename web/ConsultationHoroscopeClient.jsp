@@ -26,12 +26,15 @@
         
         <form name="HoroscopeList" id="formulaire" method="post" action="./ActionServlet">
            
-            <select name="horoscopeChoisi" size="5" dir="rtl"> 
+            <select id="clientlist" name="horoscopeChoisi" size="20"> 
                 <c:forEach items="${ListeHoroscopes}" var="c" >
                     
                     <option value="${c.getId()}">
-                        <fmt:formatDate pattern="yyyy-MM-dd" value="${c.getDate()}" />
+                        
                         <c:out value="${c.getId()}"/> 
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <fmt:formatDate pattern="yyyy-MM-dd" value="${c.getDate()}" />
+                        
                         
                     </option>
                 </c:forEach>
@@ -40,20 +43,15 @@
                 
                 
             </select>
+                    
                 
-                <label>
-                    <input type ="submit" name="todo" value="ConsulterHoroscope">
-                </label>
+                    <input id="acceuilbutton" type ="submit" name="todo" value="Consulter">
                 
-                <label>
-                    <input type ="submit" name="todo" value="Creer">
-                </label>
+                    <input id="acceuilbutton" type ="submit" name="todo" value="Creer">
             
-                <input type ="hidden" name="todo" value="RetourAcceuil">
+                    <input type ="hidden" name="todo" value="RetourAcceuil">
             
-                <label>
-                    <input type ="submit" name="Retour" value="Retour">
-                </label>
+                    <input id="acceuilbutton" type ="submit" name="Retour" value="Retour">
            
                 
         </form>

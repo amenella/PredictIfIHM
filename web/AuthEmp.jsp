@@ -14,22 +14,19 @@
     </head>
     <body>
         <div>
-            <h1>Predict'IF</h1>
+            <h1 align="center">Predict'IF</h1>
             <p>
             <form name="AuthEmp" id="formulaire" method="post" action="./ActionServlet">
-                <label>
-                    <span>Identifiant:</span>
-                    <input type="text" name="ID" value="Identifiant">
-                </label>
+                
+                <label id="loginlabel" for="logintext">Identifiant:</label>                    
+                <input id="logintext" type="text" name="ID">
+                
+                <label id="loginlabel" for="logintext">Mot de passe:</label>
+                <input id="logintext" type="text" name="MdP"><br>
 
-                <label>
-                    <span>Mot de Passe:</span>
-                    <input type="text" name="MdP" value="Mot de Passe"><br>
-                </label>
-
-                <label>
-                    <input class="button" type="submit" name="todo" value="Connexion"><br>
-                </label>
+                
+                <input id="loginbutton" type="submit" name="todo" value="Connexion"><br>
+                
 
             </form>
 

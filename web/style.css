@@ -13,140 +13,184 @@ and open the template in the editor.
 * { margin: 0; padding: 0; }
 
 html {
-	height: 101%;
+    height: 101%;
 }
 
 body { 
-	background-image: url(images/background.png);
-	background-repeat:repeat;
-	background-attachment:fixed;
-	background-position:center;
-	background-size:100% 100%;
-	font-size: 16px;
-	padding-bottom: 65px;
+    background-color: #9D0DFF;
+    background-repeat:repeat;
+    background-attachment:fixed;
+    background-position:center;
+    background-size:100% 100%;
+    font-size: 16px;
+    padding-bottom: 65px;
 }
 
 h1.titre { 
-	cursor:default;
-	line-height:1.4em; 
-	font-size: 24px; 
-	margin-bottom:8px; 
-	color:#FE3B00;
-        text-align: center;
+    cursor:default;
+    line-height:1.4em; 
+    font-size: 24px; 
+    margin-bottom:8px; 
+    color:#FE3B00;
+    text-align: center;
 }
 
 p { 
-	line-height:1.2em;
-	margin-bottom:24px; 
+    line-height:1.2em;
+    margin-bottom:24px; 
+    text-align: center;
 }
 
+
 a { 
-	color:#42241b;
-	font-size:16px;
-	text-decoration:none; 
+    color:#42241b;
+    font-size:16px;
+    text-decoration:none; 
 }
 
 a:hover {
-	color:#000; 
-	text-decoration:underline;  
+    color:#000; 
+    text-decoration:underline;  
 }
 
 li {
-	color:#ed7700;
-	font-weight:800;
+    color:#ed7700;
+    font-weight:800;
 }
 
 .description{
     margin-left: auto;
     margin-right: auto;
-    
-    
-    
+    text-align: center;
+
+
+
 }
 
 .wrapper {
-	margin: 47px auto;
-	max-width:580px;
+    margin: 47px auto;
+    max-width:580px;
 }
 
 #formulaire { 
-	text-shadow:0 1px 0 #FFF;
-	border-radius:4px;
-	background:#F9F9F9;
-	opacity:0.8;
-	padding:25px;
-	
+    text-shadow:0 1px 0 #FFF;
+    border-radius:4px;
+    background:#F9F9F9;
+    padding:25px;
+
 }
 
 
 #formulairecontent label { 
-	margin:4px 0;
-	color:#ed7700;
-	display:block;
-	font-weight:800;	
+    margin:4px 0;
+    color:#ed7700;
+    display:block;
+    font-weight:800;	
 }
 
 input {
-	cursor:text;
-	display:block;
-	width:90%;
-	border-radius:4px;
-	background-color:#f4f4f4;
-	color:#000;
-	border:1px solid #5f5f5f;
-	padding:10px;
-	margin-bottom:25px;
+    cursor:text;
+    display:block;
+    width:90%;
+    border-radius:4px;
+    background-color:#f4f4f4;
+    color:#000;
+    border:1px solid #5f5f5f;
+    padding:10px;
+    margin-bottom:25px;
 }
 
 textarea { 
-	display:block;
-	width:90%;
-	border-radius:4px;
-	background-color:#f4f4f4;
-	color:#000;
-	border:1px solid #5f5f5f;
-	padding:10px;
-	margin-bottom:25px;
+    display:block;
+    width:90%;
+    border-radius:4px;
+    background-color:#f4f4f4;
+    color:#000;
+    border:1px solid #5f5f5f;
+    padding:10px;
+    margin-bottom:25px;
 }
 
 table{
-	margin-left:auto;
-	margin-right:auto;
-	width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    border:none;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+table.infosClients td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+table.infosClients td:first-child {
+    border-left: none;
+}
+
+table.infosClients td:last-child {
+    border-right: none;
 }
 
 tr{
-	vertical-align:middle;
+    vertical-align:middle;
 
 }
 td{
-	width:50%;
-	vertical-align:middle;
+    vertical-align:middle;
 }
 
 
 .button {
-	cursor:pointer;
-	box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
-	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
-	background-color:#ffc477;
-	border-radius:16px;
-	border:1px solid #eeb44f;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:14px;
-	width:45%;
-	font-weight:bold;
-	text-shadow:1px 1px 0px #cc9f52;
-	margin-left:auto;
-	margin-right:auto;
-	margin-bottom:0;
+    cursor:pointer;
+    box-shadow:inset 0px 1px 0px 0px #fce2c1;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+    background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+    background-color:#ffc477;
+    border-radius:16px;
+    border:1px solid #eeb44f;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    width:45%;
+    font-weight:bold;
+    text-shadow:1px 1px 0px #cc9f52;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:0;
 }
 .button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
-	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
-	background-color:#fb9e25;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+    background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+    background-color:#fb9e25;
 }
+
+.checkbox {
+    cursor:default;
+    display:inline;
+    border-radius:4px;
+    background-color:#f4f4f4;
+    color:#000;
+    border:1px solid #5f5f5f;
+    padding:10px;
+    margin-bottom:0px;    
+}
+
+.cgu {
+    display: inline;
+}
+
+select {
+    margin-bottom: 25px;
+    display: block;
+    width: 90%;
+    padding: 10px;
+    border-radius: 4px;
+}
+

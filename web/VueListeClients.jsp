@@ -23,7 +23,7 @@
         <ul>
             <c:forEach var="client" items="${clients}">
                 <li>
-                    client : ${client.civ} ${client.nom} ${client.prenom}
+                    client : ${client.getCiv()} ${client.getNom()} ${client.getPrenom()}
                 </li>
             </c:forEach>
         </ul>

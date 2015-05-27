@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servlet;
+package IHMEmploye;
 
+import Servlet.Action;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  *
  * @author Lingfan
  */
-public class SelectionAction extends Action {
+public class RetoursansSelect extends Action{
 
     @Override
     public void execute(HttpServletRequest request) {
-        
+        //rien a faire
     }
     
 }

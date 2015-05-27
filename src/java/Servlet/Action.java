@@ -1,7 +1,7 @@
 package Servlet;
 
 
-import METIER_SERVICE.*;
+import METIER_SERVICE.Services;
 import javax.servlet.http.HttpServletRequest;
 
 /*
